@@ -3,7 +3,6 @@ using RPG.Saving;
 using RPG.Attributes;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections.Generic;
 
 namespace RPG.Movement
 {
@@ -29,11 +28,6 @@ namespace RPG.Movement
             health = GetComponent<Health>();
         }
 
-        private void Start()
-        {
-
-        }
-
         void Update()
         {
             navMeshAgent.enabled = !health.IsDead();
@@ -41,7 +35,7 @@ namespace RPG.Movement
         }
 
         public void StartMoveAction(Vector3 destination, float speedFraction)
-        {
+        {           
             GetComponent<ActionScheduler>().StartAction(this);
             MoveTo(destination, speedFraction);
         }

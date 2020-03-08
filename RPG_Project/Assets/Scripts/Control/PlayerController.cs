@@ -91,15 +91,13 @@ namespace RPG.Control
 
         private bool InteractWithMovement()
         {
-            Vector3 target;
+            Vector3 target;     
             bool hasHit = RaycastNavMesh(out target);
 
             if (hasHit)
-            {
+            {                
                 if (!GetComponent<Mover>().CanMoveTo(target)) return false;
-
-                if (Input.GetMouseButton(0))
-                    GetComponent<Mover>().StartMoveAction(target, 1.0f);
+                if (Input.GetMouseButton(0)) GetComponent<Mover>().StartMoveAction(target, 1.0f);
                 SetCursor(CursorType.Movement);
                 return true;
             }
